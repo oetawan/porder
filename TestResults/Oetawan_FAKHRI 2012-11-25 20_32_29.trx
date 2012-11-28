@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0ff598ee-bb79-49d8-aca3-e8ea3da6eb07" name="Oetawan@FAKHRI 2012-11-25 20:32:29" runUser="FAKHRI\Oetawan" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4e3a9320-3389-4245-aa23-3ca096a9254c">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Oetawan_FAKHRI 2012-11-25 20_32_29" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-11-25T20:32:29.9637581+07:00" queuing="2012-11-25T20:32:30.5337907+07:00" start="2012-11-25T20:32:30.9328135+07:00" finish="2012-11-25T20:32:49.1618562+07:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestFindAllGroups" storage="c:\users\oetawan\appdata\local\temp\vvioookt.t5o\porder.test.dll" id="68f6ddcc-26ec-95b3-6b4b-3131e487882d">
+      <Execution timeOut="1800000" id="13a3c0b0-658e-4e18-a5c5-1e23aac33793" />
+      <TestMethod codeBase="C:/Users/Oetawan/AppData/Local/Temp/vvioookt.t5o/porder.test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="porder.test.GroupingRepositoryTest, porder.test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestFindAllGroups" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="68f6ddcc-26ec-95b3-6b4b-3131e487882d" executionId="13a3c0b0-658e-4e18-a5c5-1e23aac33793" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="13a3c0b0-658e-4e18-a5c5-1e23aac33793" testId="68f6ddcc-26ec-95b3-6b4b-3131e487882d" testName="TestFindAllGroups" computerName="FAKHRI" duration="00:00:17.8049061" startTime="2012-11-25T20:32:31.0418198+07:00" endTime="2012-11-25T20:32:49.0478496+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="13a3c0b0-658e-4e18-a5c5-1e23aac33793">
+    </UnitTestResult>
+  </Results>
+</TestRun>
