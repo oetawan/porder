@@ -9,5 +9,6 @@ namespace porder.data.contract
     public interface IItemRepository
     {
         IList<Item> FindItemByGroup(int groupId);
+        IList<Item> SearchItem(string keyword);
     }
 }

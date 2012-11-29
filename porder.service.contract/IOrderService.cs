@@ -14,5 +14,8 @@ namespace porder.service.contract
 
         [OperationContract]
         IList<Item> FindItemByGroup(int groupId);
+
+        [OperationContract]
+        IList<Item> SearchItem(string keyword);
     }
 }

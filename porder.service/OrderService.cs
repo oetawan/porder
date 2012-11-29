@@ -29,5 +29,10 @@ namespace porder.service
         {
             return itemRepository.FindItemByGroup(groupId);
         }
+
+        public IList<model.Item> SearchItem(string keyword)
+        {
+            return itemRepository.SearchItem(keyword);
+        }
     }
 }
