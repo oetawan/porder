@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VendorRepository.cs" />
     <Compile Include="ItemRepository.cs" />
     <Compile Include="GroupingRepository.cs" />
     <Compile Include="OrderDbContext.cs" />

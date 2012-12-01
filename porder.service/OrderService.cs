@@ -12,12 +12,14 @@ namespace porder.service
         OrderDbContext dbContext;
         IGroupingRepository groupingRepository;
         IItemRepository itemRepository;
+        IVendorRepository vendorRepository;
 
         public OrderService()
         {
             this.dbContext = new OrderDbContext();
             this.groupingRepository = new GroupingRepository(this.dbContext);
             this.itemRepository = new ItemRepository(this.dbContext);
+            this.vendorRepository = new VendorRepository(this.dbContext);
         }
 
         public IList<model.Grouping> AllGroups()
@@ -33,6 +35,11 @@ namespace porder.service
         public IList<model.Item> SearchItem(string keyword)
         {
             return itemRepository.SearchItem(keyword);
+        }
+
+        public model.Vendor FindVendorByCode(string vendorCode)
+        {
+            return vendorRepository.FindByCode(vendorCode);
         }
     }
 }

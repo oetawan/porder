@@ -17,5 +17,8 @@ namespace porder.service.contract
 
         [OperationContract]
         IList<Item> SearchItem(string keyword);
+
+        [OperationContract]
+        Vendor FindVendorByCode(string vendorCode);
     }
 }

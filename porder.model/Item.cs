@@ -22,5 +22,6 @@ namespace porder.model
         public decimal TaxType { get; set; }
         public string TaxName { get; set; }
         public double TaxRate { get; set; }
+        public bool Taxable { get; set; }
     }
 }

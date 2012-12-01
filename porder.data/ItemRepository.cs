@@ -32,7 +32,8 @@ namespace porder.data
                          tblTax.Kode, 
                          tblTax.TaxType, 
                          tblTax.taxName, 
-                         tblTax.taxRate
+                         tblTax.taxRate,
+                         tblItem.itmTaxable as taxable
                   FROM tblItem INNER JOIN
                         tblTax ON tblItem.TaxId = tblTax.TaxId
                   WHERE (tblItem.itmDiscontinue = 0) AND 
@@ -58,7 +59,8 @@ namespace porder.data
                          tblTax.TaxId, 
                          tblTax.Kode, 
                          tblTax.TaxType, tblTax.taxName, 
-                         tblTax.taxRate
+                         tblTax.taxRate,
+                         tblItem.itmTaxable as taxable
                   FROM tblItem INNER JOIN
                         tblTax ON tblItem.TaxId = tblTax.TaxId
                   WHERE (tblItem.itmDiscontinue = 0) AND (tblItem.deleted = 0) AND (tblItem.itmName LIKE '%{0}%') OR
