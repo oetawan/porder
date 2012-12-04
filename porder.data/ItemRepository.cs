@@ -68,5 +68,23 @@ namespace porder.data
 
             return result.ToList();
         }
+
+        public IList<ItemPrice> ItemPrice(Int16 priceCatId)
+        {
+            IEnumerable<ItemPrice> result = dbContext.Database.SqlQuery<ItemPrice>(
+                @"select itmpriceid as id, 
+                         itemid, 
+                         pricecatid, 
+                         unitcode, 
+                         pprprice as price, 
+                         pprdiscount as discount, 
+                         currencyid, 
+                         pprminqty as minqty, 
+                         pprmaxqty maxqty 
+                  from tblItemPrice
+                  where pricecatid = {0}", priceCatId);
+
+            return result.ToList();
+        }
     }
 }

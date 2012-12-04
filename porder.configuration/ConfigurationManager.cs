@@ -14,7 +14,7 @@ namespace porder.configuration
         {
             EndpointConfig endpointConfig = null;
 
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(System.Configuration.ConfigurationSettings.AppSettings["ConfigurationUrl"]);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(System.Configuration.ConfigurationManager.AppSettings["ConfigurationUrl"]);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 

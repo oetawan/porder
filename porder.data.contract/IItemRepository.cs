@@ -10,5 +10,6 @@ namespace porder.data.contract
     {
         IList<Item> FindItemByGroup(int groupId);
         IList<Item> SearchItem(string keyword);
+        IList<ItemPrice> ItemPrice(Int16 priceCatId);
     }
 }
