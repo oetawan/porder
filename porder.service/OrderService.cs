@@ -13,6 +13,7 @@ namespace porder.service
         IGroupingRepository groupingRepository;
         IItemRepository itemRepository;
         IVendorRepository vendorRepository;
+        IOrderRepository orderRepository;
 
         public OrderService()
         {
@@ -20,6 +21,7 @@ namespace porder.service
             this.groupingRepository = new GroupingRepository(this.dbContext);
             this.itemRepository = new ItemRepository(this.dbContext);
             this.vendorRepository = new VendorRepository(this.dbContext);
+            this.orderRepository = new OrderRepository(this.dbContext);
         }
 
         public IList<model.Grouping> AllGroups()
@@ -40,6 +42,25 @@ namespace porder.service
         public model.Vendor FindVendorByCode(string vendorCode)
         {
             return vendorRepository.FindByCode(vendorCode);
+        }
+
+        public model.CreateOrderResponse CreateOrder(model.Order order)
+        {
+            try
+            {
+                orderRepository.Add(order);
+                return new model.CreateOrderResponse { 
+                    Error = false
+                };
+            }
+            catch (Exception ex)
+            {
+                return new model.CreateOrderResponse
+                {
+                    Error = true,
+                    ErrorMessage = ex.Message
+                };
+            }
         }
     }
 }

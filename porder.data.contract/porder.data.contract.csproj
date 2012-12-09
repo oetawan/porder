@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="IGroupingRepository.cs" />
     <Compile Include="IItemRepository.cs" />
+    <Compile Include="IOrderRepository.cs" />
     <Compile Include="IOrderUow.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IVendorRepository.cs" />

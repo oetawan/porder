@@ -20,5 +20,8 @@ namespace porder.service.contract
 
         [OperationContract]
         Vendor FindVendorByCode(string vendorCode);
+
+        [OperationContract]
+        model.CreateOrderResponse CreateOrder(model.Order order);
     }
 }
