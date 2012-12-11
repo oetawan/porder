@@ -10,15 +10,36 @@ namespace porder.configuration
 {
     public class ConfigurationManager
     {
+        static bool fetched = false;
+
+        public void FetchHomePage()
+        {
+            if (fetched) return;
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(System.Configuration.ConfigurationManager.AppSettings["HostUrl"]);
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            if (httpResponse.StatusCode != HttpStatusCode.OK)
+            {
+                fetched = false;
+                throw new ApplicationException(string.Format("{0} ({1})", httpResponse.StatusDescription, httpResponse.StatusCode));
+            }
+            else
+            {
+                fetched = true;
+            }
+        }
+
         public EndpointConfig GetEndpointConfig(string username, string password)
         {
+            FetchHomePage();
+
             EndpointConfig endpointConfig = null;
 
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(System.Configuration.ConfigurationManager.AppSettings["ConfigurationUrl"]);
-            httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
+            
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(System.Configuration.ConfigurationManager.AppSettings["HostUrl"] + "/Customer/Login");
+                webRequest.ContentType = "application/json";
+                webRequest.Method = "POST";
 
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            using (var streamWriter = new StreamWriter(webRequest.GetRequestStream()))
             {
                 CustomerLoginModel login = new CustomerLoginModel { Username = username, Password = password };
                 var loginjson = Newtonsoft.Json.JsonConvert.SerializeObject(login);
@@ -27,7 +48,7 @@ namespace porder.configuration
                 streamWriter.Flush();
                 streamWriter.Close();
 
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                var httpResponse = (HttpWebResponse)webRequest.GetResponse();
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
                     var result = streamReader.ReadToEnd();
