@@ -42,6 +42,8 @@ namespace porder.window
                 ServiceBusManager.Password = txtPassword.Text;
                 ServiceBusManager.Start();
 
+                configuration.ConfigurationManager.DoNotShowSettingFormAtStartup();
+
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
             }

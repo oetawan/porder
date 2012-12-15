@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtDatabase = new System.Windows.Forms.TextBox();
+            this.txtServer = new System.Windows.Forms.TextBox();
             this.lblHostUrl = new System.Windows.Forms.Label();
             this.lblDbServer = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,10 +41,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblPwd = new System.Windows.Forms.Label();
             this.txtHost = new System.Windows.Forms.TextBox();
-            this.txtServer = new System.Windows.Forms.TextBox();
-            this.txtDatabase = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnTest = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +51,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.03614F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.96386F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
             this.tableLayoutPanel1.Controls.Add(this.txtPassword, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtUsername, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtDatabase, 1, 2);
@@ -80,13 +80,54 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(479, 249);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // txtPassword
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.txtPassword, 3);
+            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPassword.Location = new System.Drawing.Point(113, 133);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(363, 23);
+            this.txtPassword.TabIndex = 11;
+            // 
+            // txtUsername
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.txtUsername, 3);
+            this.txtUsername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUsername.Location = new System.Drawing.Point(113, 101);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(363, 23);
+            this.txtUsername.TabIndex = 10;
+            // 
+            // txtDatabase
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.txtDatabase, 3);
+            this.txtDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDatabase.Location = new System.Drawing.Point(113, 69);
+            this.txtDatabase.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.txtDatabase.Name = "txtDatabase";
+            this.txtDatabase.Size = new System.Drawing.Size(363, 23);
+            this.txtDatabase.TabIndex = 9;
+            // 
+            // txtServer
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.txtServer, 3);
+            this.txtServer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtServer.Location = new System.Drawing.Point(113, 37);
+            this.txtServer.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.txtServer.Name = "txtServer";
+            this.txtServer.Size = new System.Drawing.Size(363, 23);
+            this.txtServer.TabIndex = 8;
+            // 
             // lblHostUrl
             // 
             this.lblHostUrl.AutoSize = true;
             this.lblHostUrl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHostUrl.Location = new System.Drawing.Point(3, 0);
             this.lblHostUrl.Name = "lblHostUrl";
-            this.lblHostUrl.Size = new System.Drawing.Size(105, 32);
+            this.lblHostUrl.Size = new System.Drawing.Size(104, 32);
             this.lblHostUrl.TabIndex = 0;
             this.lblHostUrl.Text = "Host Url";
             this.lblHostUrl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -97,7 +138,7 @@
             this.lblDbServer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDbServer.Location = new System.Drawing.Point(3, 32);
             this.lblDbServer.Name = "lblDbServer";
-            this.lblDbServer.Size = new System.Drawing.Size(105, 32);
+            this.lblDbServer.Size = new System.Drawing.Size(104, 32);
             this.lblDbServer.TabIndex = 1;
             this.lblDbServer.Text = "Database Server";
             this.lblDbServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -108,7 +149,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 32);
+            this.label3.Size = new System.Drawing.Size(104, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "Database Name";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -119,14 +160,14 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(3, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 32);
+            this.label4.Size = new System.Drawing.Size(104, 32);
             this.label4.TabIndex = 3;
             this.label4.Text = "Username";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(330, 218);
+            this.btnSave.Location = new System.Drawing.Point(328, 218);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(70, 23);
             this.btnSave.TabIndex = 4;
@@ -136,7 +177,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(406, 218);
+            this.btnCancel.Location = new System.Drawing.Point(404, 218);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(70, 23);
             this.btnCancel.TabIndex = 5;
@@ -150,7 +191,7 @@
             this.lblPwd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPwd.Location = new System.Drawing.Point(3, 128);
             this.lblPwd.Name = "lblPwd";
-            this.lblPwd.Size = new System.Drawing.Size(105, 32);
+            this.lblPwd.Size = new System.Drawing.Size(104, 32);
             this.lblPwd.TabIndex = 6;
             this.lblPwd.Text = "Password";
             this.lblPwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,52 +200,11 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.txtHost, 3);
             this.txtHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtHost.Location = new System.Drawing.Point(114, 5);
+            this.txtHost.Location = new System.Drawing.Point(113, 5);
             this.txtHost.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.txtHost.Name = "txtHost";
-            this.txtHost.Size = new System.Drawing.Size(362, 23);
+            this.txtHost.Size = new System.Drawing.Size(363, 23);
             this.txtHost.TabIndex = 7;
-            // 
-            // txtServer
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.txtServer, 3);
-            this.txtServer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtServer.Location = new System.Drawing.Point(114, 37);
-            this.txtServer.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(362, 23);
-            this.txtServer.TabIndex = 8;
-            // 
-            // txtDatabase
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.txtDatabase, 3);
-            this.txtDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDatabase.Location = new System.Drawing.Point(114, 69);
-            this.txtDatabase.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.txtDatabase.Name = "txtDatabase";
-            this.txtDatabase.Size = new System.Drawing.Size(362, 23);
-            this.txtDatabase.TabIndex = 9;
-            // 
-            // txtUsername
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.txtUsername, 3);
-            this.txtUsername.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUsername.Location = new System.Drawing.Point(114, 101);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(362, 23);
-            this.txtUsername.TabIndex = 10;
-            // 
-            // txtPassword
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.txtPassword, 3);
-            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPassword.Location = new System.Drawing.Point(114, 133);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(362, 23);
-            this.txtPassword.TabIndex = 11;
             // 
             // btnTest
             // 
@@ -227,6 +227,7 @@
             this.MinimumSize = new System.Drawing.Size(535, 327);
             this.Name = "SettingForm";
             this.Padding = new System.Windows.Forms.Padding(20);
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Setting Form";
             this.Load += new System.EventHandler(this.SettingForm_Load);

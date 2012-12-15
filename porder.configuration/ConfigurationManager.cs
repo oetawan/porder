@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace porder.configuration
 {
@@ -57,6 +59,70 @@ namespace porder.configuration
             }
 
             return endpointConfig;
+        }
+
+        public static bool ShowSettingAtStartup
+        {
+            get 
+            {
+                return System.Configuration.ConfigurationManager.AppSettings["ShowSettingAtStartup"] == "true";
+            }
+        }
+
+        public static void SaveConfig(string server, string database, string userid, string pwd, string hostUrl)
+        {
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.Load(System.AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+            XmlNode parentNode = xmlDocument.DocumentElement;
+            foreach (XmlNode node in parentNode.ChildNodes)
+            {
+                if (node.Name == "connectionStrings")
+                {
+                    foreach (XmlNode childNode in node.ChildNodes)
+                    {
+                        if (childNode.Name == "add" && childNode.Attributes["name"].Value == "Order")
+                        {
+                            string sqlConnectionString = childNode.Attributes["connectionString"].Value;
+                            SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder(sqlConnectionString);
+                            sqlBuilder.DataSource = server;
+                            sqlBuilder.InitialCatalog = database;
+                            sqlBuilder.IntegratedSecurity = false;
+                            sqlBuilder.UserID = userid;
+                            sqlBuilder.Password = pwd;
+
+                            //Change any other attributes using the sqlBuilder object
+                            childNode.Attributes["connectionString"].Value = sqlBuilder.ConnectionString;
+                        }
+                    }
+                }
+                else if (node.Name == "appSettings")
+                {
+                    foreach (XmlNode childNode in node.ChildNodes)
+                    {
+                        if (childNode.Name == "add" && childNode.Attributes["key"].Value == "HostUrl")
+                        {
+                            childNode.Attributes["value"].Value = hostUrl;
+                        }
+                    }
+                }
+            }
+            xmlDocument.Save(System.AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+        }
+        public static void DoNotShowSettingFormAtStartup()
+        {
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.Load(System.AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+            XmlNodeList nodes = xmlDocument.GetElementsByTagName("appSettings");
+            if (nodes.Count == 0) return;
+
+            foreach (XmlNode childNode in nodes[0].ChildNodes)
+            {
+                if (childNode.Name == "add" && childNode.Attributes["key"].Value == "ShowSettingAtStartup")
+                {
+                    childNode.Attributes["value"].Value = "false";
+                }
+            }
+            xmlDocument.Save(System.AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
         }
     }
 }

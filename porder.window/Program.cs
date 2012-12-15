@@ -17,7 +17,7 @@ namespace porder.window
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (SettingForm.NotConfigured())
+            if (configuration.ConfigurationManager.ShowSettingAtStartup)
             {
                 SettingForm settingForm = new SettingForm(true);
                 settingForm.ShowDialog();

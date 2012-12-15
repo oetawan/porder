@@ -47,7 +47,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.13808F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.86192F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 206F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
             this.tableLayoutPanel1.Controls.Add(this.lblUsername, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblPasword, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtUsername, 1, 0);
@@ -71,7 +71,7 @@
             this.lblUsername.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(3, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(121, 50);
+            this.lblUsername.Size = new System.Drawing.Size(119, 50);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -83,7 +83,7 @@
             this.lblPasword.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPasword.Location = new System.Drawing.Point(3, 50);
             this.lblPasword.Name = "lblPasword";
-            this.lblPasword.Size = new System.Drawing.Size(121, 50);
+            this.lblPasword.Size = new System.Drawing.Size(119, 50);
             this.lblPasword.TabIndex = 1;
             this.lblPasword.Text = "Password";
             this.lblPasword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -92,27 +92,27 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.txtUsername, 2);
             this.txtUsername.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUsername.Location = new System.Drawing.Point(130, 10);
+            this.txtUsername.Location = new System.Drawing.Point(128, 10);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(313, 30);
+            this.txtUsername.Size = new System.Drawing.Size(315, 30);
             this.txtUsername.TabIndex = 2;
             // 
             // txtPassword
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.txtPassword, 2);
             this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPassword.Location = new System.Drawing.Point(130, 60);
+            this.txtPassword.Location = new System.Drawing.Point(128, 60);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(313, 30);
+            this.txtPassword.Size = new System.Drawing.Size(315, 30);
             this.txtPassword.TabIndex = 3;
             // 
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(130, 103);
+            this.btnOK.Location = new System.Drawing.Point(128, 103);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(100, 35);
             this.btnOK.TabIndex = 4;
@@ -164,6 +164,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(502, 282);
             this.Name = "LoginForm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.tableLayoutPanel1.ResumeLayout(false);

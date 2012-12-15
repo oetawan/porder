@@ -25,17 +25,9 @@ namespace porder.window
 
             trayIcon = new NotifyIcon();
             trayIcon.Text = "Service Host";
-            trayIcon.Icon = new Icon(SystemIcons.Application, 40, 40);
+            trayIcon.Icon = new Icon("1355324326_Cloud.ico", 32, 32);
             trayIcon.ContextMenu = trayMenu;
             trayIcon.Visible     = true;
-
-            
-        }
-        protected override void OnLoad(EventArgs e)
-        {
-            Visible       = false; // Hide form window.
-            ShowInTaskbar = false; // Remove from taskbar.
-            base.OnLoad(e);
         }
 
         private void OnExit(object sender, EventArgs e)
@@ -47,6 +39,7 @@ namespace porder.window
         {
             Visible = true;
             WindowState = FormWindowState.Normal;
+            ShowInTaskbar = true;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -126,6 +119,23 @@ namespace porder.window
         private void btnSetting_Click(object sender, EventArgs e)
         {
             new SettingForm().ShowDialog();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            HideMainForm();
+        }
+
+        private void HideMainForm()
+        {
+            Visible = false;
+            ShowInTaskbar = false;
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            HideMainForm();
         }
     }
 }

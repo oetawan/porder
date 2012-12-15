@@ -31,24 +31,6 @@ namespace porder.window
             this.requireRestart = requireRestart;
         }
 
-        public static bool NotConfigured()
-        {
-            System.Configuration.ConnectionStringSettings cnSetting = System.Configuration.ConfigurationManager.ConnectionStrings["Order"];
-            List<string> cnStrings = cnSetting.ConnectionString.Split(';').ToList();
-
-            string host = System.Configuration.ConfigurationManager.AppSettings["HostUrl"];
-            string server = cnStrings.Find(s => s.Split('=')[0].ToLower() == "data source").Split('=')[1];
-            string database = cnStrings.Find(s => s.Split('=')[0].ToLower() == "initial catalog").Split('=')[1];
-            string userid = cnStrings.Find(s => s.Split('=')[0].ToLower() == "user id").Split('=')[1];
-            string password = cnStrings.Find(s => s.Split('=')[0].ToLower() == "password").Split('=')[1];
-
-            return host.Trim() == string.Empty ||
-                   server.Trim() == string.Empty ||
-                   database.Trim() == string.Empty ||
-                   userid.Trim() == string.Empty ||
-                   password.Trim() == string.Empty;
-        }
-
         private void SettingForm_Load(object sender, EventArgs e)
         {
             ReadConfig();   
@@ -72,44 +54,7 @@ namespace porder.window
             {
                 Cursor = Cursors.WaitCursor;
 
-                XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.Load(System.AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-                XmlNode parentNode = xmlDocument.DocumentElement;
-                foreach (XmlNode node in parentNode.ChildNodes)
-                {
-                    if (node.Name == "connectionStrings")
-                    {
-                        foreach (XmlNode childNode in node.ChildNodes)
-                        {
-                            if (childNode.Name == "add" && childNode.Attributes["name"].Value == "Order")
-                            {
-                                string sqlConnectionString = childNode.Attributes["connectionString"].Value;
-                                SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder(sqlConnectionString);
-                                sqlBuilder.DataSource = txtServer.Text;
-                                sqlBuilder.InitialCatalog = txtDatabase.Text;
-                                sqlBuilder.IntegratedSecurity = false;
-                                sqlBuilder.UserID = txtUsername.Text;
-                                sqlBuilder.Password = txtPassword.Text;
-
-                                //Change any other attributes using the sqlBuilder object
-                                childNode.Attributes["connectionString"].Value = sqlBuilder.ConnectionString;
-                            }
-                        }
-                    }
-                    else if (node.Name == "appSettings")
-                    {
-                        foreach (XmlNode childNode in node.ChildNodes)
-                        {
-                            if (childNode.Name == "add" && childNode.Attributes["key"].Value == "HostUrl")
-                            {
-                                childNode.Attributes["value"].Value = txtHost.Text;
-                            }
-                        }
-                    }
-                }
-                xmlDocument.Save(System.AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-                System.Configuration.ConfigurationManager.RefreshSection("appSettings");
-                System.Configuration.ConfigurationManager.RefreshSection("connectionStrings");
+                configuration.ConfigurationManager.SaveConfig(txtServer.Text, txtDatabase.Text, txtUsername.Text, txtPassword.Text, txtHost.Text);
 
                 MessageBox.Show("Saved.", "Config", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (requireRestart)
